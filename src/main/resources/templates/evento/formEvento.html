@@ -16,12 +16,19 @@
 
 	<h1>Cadastro de Eventos:</h1>
 	<h3><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Lista de Eventos</a></h3>
-	<form method="post">
+	<form class="container" method="post">
 		Nome: <input type="text" value="" name="nome"/>
-		Local: <input type="text" value="" name="local"/>
-		Data: <input type="date" value="" name="data"/>
-		Horario: <input type="text" value="" name="horario"/>
-		
+		<div class="row">
+			<div class="input-flied col s6">
+				Local: <input type="text" value="" name="local"/>
+			</div>
+			<div class="input-flied col s3">
+				Data: <input type="date" value="" name="data"/>
+			</div>
+			<div class="input-flied col s3">
+				Horario: <input type="text" value="" name="horario"/>
+			</div>
+		</div>
 		<button class="waves-effect waves-light btn"><i class="material-icons left">playlist_add</i>Salvar</button>
 	
 	</form>
