@@ -67,9 +67,9 @@ public class EventoController {
 		return mv;
 	}
 	
-	@RequestMapping("/deletar")
+	@RequestMapping("/deletarEvento")
 	public String deletarEvento(long codigo){
-		Evento = evento = er.findByCodigo(codigo);
+		Evento evento = er.findByCodigo(codigo);
 		er.delete(evento);		
 		return "redirect:/eventos";
 	}
@@ -85,6 +85,16 @@ public class EventoController {
 		cr.save(convidado);
 		attributes.addFlashAttribute("mensagem", "Convidado cadastrado com sucesso!");
 		return "redirect:/{codigo}";
+	}
+	
+	@RequestMapping("/deletarConvidado")
+	public String deletarConvidado(String rg){
+		Convidado convidado = cr.findByRg(rg);
+		cr.delete(convidado);
+		Evento evento = convidado.getEvento();
+		long codigoLong = evento.getCodigo();
+		String codigo = "" + codigoLong;
+		return "redirect:/" + codigo;
 	}
 	
 }
